@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Roblox Event Countdown Tracker</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⏱️</text></svg>">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand-section">
+        <div class="brand-logo">⏱️</div>
+        <div>
+          <h1 class="brand-title">Roblox Event Tracker</h1>
+          <div class="brand-subtitle">Global Multi-Timezone Countdown &amp; Alert System</div>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <!-- Live Clock with Timezone indicator -->
+        <div class="live-clock-badge" id="liveClockBadge" title="Current Time">
+          <span class="live-pulse"></span>
+          <span id="currentTimeDisplay">--:--:--</span>
+          <span class="tz-pill" id="currentTzPill">UTC</span>
+        </div>
+
+        <!-- Timezone Mode Selector -->
+        <select class="tz-select-dropdown" id="tzModeSelect" title="Display Timezone">
+          <option value="local">📍 Local Time</option>
+          <option value="origin">🌏 Origin (UTC+7)</option>
+          <option value="utc">🌐 UTC Time</option>
+        </select>
+
+        <!-- Sound Toggle -->
+        <button class="btn-icon" id="soundToggleBtn" title="Toggle Sound Alerts">
+          <span id="soundIcon">🔊</span>
+          <span id="soundLabel">Sound ON</span>
+        </button>
+
+        <!-- Desktop Notifications -->
+        <button class="btn-icon" id="notifyToggleBtn" title="Toggle Desktop Notifications">
+          <span id="notifyIcon">🔔</span>
+          <span id="notifyLabel">Alerts</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Overview Stats Banner -->
+    <div class="stats-banner">
+      <div class="stat-chip">
+        <div class="stat-icon">📋</div>
+        <div>
+          <div class="stat-label">Events Tracked</div>
+          <div class="stat-val" id="statTotalEvents">0</div>
+        </div>
+      </div>
+
+      <div class="stat-chip">
+        <div class="stat-icon">⚡</div>
+        <div>
+          <div class="stat-label">Active Now (LIVE)</div>
+          <div class="stat-val" id="statActiveEvents" style="color: var(--accent-emerald);">0</div>
+        </div>
+      </div>
+
+      <div class="stat-chip">
+        <div class="stat-icon">⏳</div>
+        <div>
+          <div class="stat-label">Next Upcoming Event</div>
+          <div class="stat-val" id="statNextEvent" style="color: #38bdf8;">--</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Events Grid -->
+    <main class="events-grid" id="eventsGrid">
+      <!-- Generated dynamically from config.js -->
+    </main>
+
+  </div>
+
+  <!-- Toast Container for Sound & Milestone Notifications -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div>Roblox Event Countdown Tracker &bull; Multi-Timezone Precision Synchronization</div>
+    <div style="margin-top: 6px; font-size: 0.75rem; color: var(--text-dim);">
+      Configure events easily by editing <code>config.js</code>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
