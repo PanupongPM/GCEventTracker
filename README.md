@@ -1,6 +1,6 @@
-# ⏱️ Roblox Event Countdown Tracker
+# 🐔 Grow a Chicken Event Tracker
 
-A modern, precision-timed recurring event countdown dashboard for Roblox. Designed as a clean, tamper-proof display driven directly by `config.js` with **Global Multi-Timezone synchronization**.
+A modern, precision-timed recurring event countdown dashboard for Roblox (Grow a Chicken Fighter). Designed as a clean, tamper-proof display driven directly by `config.js` with **Global Multi-Timezone synchronization**.
 
 ---
 

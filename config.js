@@ -109,8 +109,7 @@ const DEFAULT_EVENTS = [
 ];
 
 const APP_SETTINGS = {
-  appName: "Roblox Event Tracker",
-  appSubtitle: "Global Multi-Timezone Countdown & Alert System",
+  appName: "Grow a Chicken Event Tracker",
   originTimezone: "+07:00", // Reference origin timezone (UTC+7)
   originTimezoneName: "Bangkok (UTC+7)",
   displayTimezone: "local", // "local", "origin", or "utc"
