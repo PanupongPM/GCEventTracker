@@ -53,9 +53,9 @@ function formatDisplayTime(dateOrMs, format = 'full') {
   const date = new Date(dateOrMs);
   const timeZone = getActiveTimezone();
   const options = {
-    hour: '2-digit',
+    hour: 'numeric',
     minute: '2-digit',
-    hour12: false,
+    hour12: true,
     timeZone
   };
   if (format === 'full') options.second = '2-digit';
@@ -85,9 +85,20 @@ function getEventAnchorMs(event) {
     }
 
     if (event.lastKnownTime.includes(':')) {
-      const parts = event.lastKnownTime.split(':');
-      const hours = parts[0].padStart(2, '0');
-      const minutes = parts[1].padStart(2, '0');
+      let timeStr = event.lastKnownTime.trim().toUpperCase();
+      const isPM = timeStr.includes('PM');
+      const isAM = timeStr.includes('AM');
+      timeStr = timeStr.replace(/AM|PM/g, '').trim();
+
+      const parts = timeStr.split(':');
+      let h = parseInt(parts[0], 10) || 0;
+      const m = parseInt(parts[1], 10) || 0;
+
+      if (isPM && h < 12) h += 12;
+      if (isAM && h === 12) h = 0;
+
+      const hours = String(h).padStart(2, '0');
+      const minutes = String(m).padStart(2, '0');
 
       let dateStr = event.anchorDate;
       if (!dateStr || !dateStr.includes('-')) {
